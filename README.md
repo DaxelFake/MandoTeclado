@@ -40,6 +40,8 @@ Funciona con mandos de PlayStation (DualSense, DualShock 4), Xbox, Switch Pro y 
 - **Vibración** al pulsar cada tecla. Se activa o desactiva en «Atajos».
 - **Arranque con Windows.** En «Atajos», activa «Con Windows». El programa se queda esperando sin molestar y, cuando conectas un mando, pregunta si quieres abrir el teclado.
 
-## Créditos
+## Licencia
 
-La lista de palabras para las sugerencias viene de [FrequencyWords](https://github.com/hermitdave/FrequencyWords) de Hermit Dave (CC BY-SA 4.0).
+El código está bajo la [licencia MIT](LICENSE).
+
+La lista de palabras para las sugerencias (`palabras_es.txt`) viene de [FrequencyWords](https://github.com/hermitdave/FrequencyWords) de Hermit Dave y mantiene su licencia original, CC BY-SA 4.0.
