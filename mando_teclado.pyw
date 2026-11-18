@@ -180,8 +180,11 @@ def _fila_abajo(texto_layout, texto_atajos):
     return [('⇧', 'shift', 1), (texto_layout, 'layout', 2), (texto_atajos, 'atajos', 2), ('Espacio', 'space', 3), ('⌫', 'back', 1), ('⏎', 'enter', 1)]
 LETRAS = [_fila('1234567890'), _fila('qwertyuiop'), _fila('asdfghjklñ'), _fila('zxcvbnm,.?'), _fila_abajo('123 #', 'Atajos')]
 SIMBOLOS = [_fila('!"#$%&/()='), _fila("áéíóúü¿¡'+"), _fila('-_:;*[]{}\\'), _fila('<>|~^`@€ç·'), _fila_abajo('ABC', 'Atajos')]
-ATAJOS = [[('Copiar', 'k:copiar', 2), ('Pegar', 'k:pegar', 2), ('Cortar', 'k:cortar', 2), ('Deshacer', 'k:deshacer', 2), ('Rehacer', 'k:rehacer', 2)], [('Selec. todo', 'k:todo', 2), ('Guardar', 'k:guardar', 2), ('Buscar', 'k:buscar', 2), ('Borrar palabra', 'k:borrapal', 2), ('Supr', 'k:supr', 2)], [('Esc', 'k:esc', 2), ('</> Programador', 'prog', 2), ('Alt+Tab', 'k:alttab', 2), ('Win', 'k:win', 2), ('Escritorio', 'k:escritorio', 2)], [('Inicio', 'k:inicio', 2), ('Fin', 'k:fin', 2), ('↑', 'k:arriba', 1), ('↓', 'k:abajo', 1), ('Vibración', 'k:vibra', 2), ('Con Windows', 'k:autoinicio', 2)], _fila_abajo('123 #', 'ABC')]
+ATAJOS = [[('Copiar', 'k:copiar', 2), ('Pegar', 'k:pegar', 2), ('Cortar', 'k:cortar', 2), ('Deshacer', 'k:deshacer', 2), ('Rehacer', 'k:rehacer', 2)], [('Selec. todo', 'k:todo', 2), ('Guardar', 'k:guardar', 2), ('Buscar', 'k:buscar', 2), ('Borrar palabra', 'k:borrapal', 2), ('Supr', 'k:supr', 2)], [('Esc', 'k:esc', 2), ('</> Programador', 'prog', 2), ('Alt+Tab', 'k:alttab', 2), ('Win', 'k:win', 2), ('Escritorio', 'k:escritorio', 2)], [('Inicio', 'k:inicio', 1), ('Fin', 'k:fin', 1), ('↑', 'k:arriba', 1), ('↓', 'k:abajo', 1), ('Sonido', 'k:sonido', 2), ('Vibración', 'k:vibra', 2), ('Con Windows', 'k:autoinicio', 2)], _fila_abajo('123 #', 'ABC')]
 PROGRAMADOR = [_fila('()[]{}<>=;'), _fila('+-*/%&|!?:'), _fila('"\'`_\\#$@') + [('=>', 'c:=>', 1), ('->', 'c:->', 1)], [('Tab ⇥', 'k:tab', 2), ('⇤ Tab', 'k:destab', 2), ('Comentar', 'k:comentar', 2), ('Descomentar', 'k:descomentar', 2), ('Guardar', 'k:guardar', 2)], [('Línea ↑', 'k:linea_arriba', 2), ('Línea ↓', 'k:linea_abajo', 2), ('Duplicar línea', 'k:duplicar', 2), ('Borrar línea', 'k:borrar_linea', 2), ('Selec. siguiente', 'k:sel_sig', 2)], [('Paleta', 'k:paleta', 2), ('Abrir archivo', 'k:abrir', 2), ('Autocompletar', 'k:autocompletar', 2), ('Renombrar F2', 'k:renombrar', 2), ('Definición F12', 'k:definicion', 2)], [('Terminal', 'k:terminal', 2), ('Ejecutar F5', 'k:ejecutar', 2), ('Formatear', 'k:formatear', 2), ('Ir a línea', 'k:ir_linea', 2), ('Deshacer', 'k:deshacer', 2)], _fila_abajo('ABC', 'Atajos')]
+PANEL_UNIDADES = 8
+HUECO_PANEL = 14
+PANEL_PROG = [[('Ejecutar F5', 'k:ejecutar', 2), ('Guardar', 'k:guardar', 2), ('Terminal', 'k:terminal', 2), ('Paleta', 'k:paleta', 2)], _fila('()[]{}<>'), _fila('=;:"\'!?&'), _fila('+-*/_\\') + [('=>', 'c:=>', 1), ('->', 'c:->', 1)], [('Tab ⇥', 'k:tab', 2), ('⇤ Tab', 'k:destab', 2), ('Comentar', 'k:comentar', 2), ('Descomentar', 'k:descomentar', 2)], [('Autocompletar', 'k:autocompletar', 2), ('Duplicar', 'k:duplicar', 2), ('Línea ↑', 'k:linea_arriba', 1), ('Línea ↓', 'k:linea_abajo', 1), ('Más </>', 'mas_prog', 2)]]
 VK_SHIFT, VK_SPACE = (16, 32)
 VK_F2, VK_F5, VK_F12 = (113, 116, 123)
 COMBOS = {'destab': (VK_SHIFT, VK_TAB), 'comentar': [(VK_CONTROL, ord('K')), (VK_CONTROL, ord('C'))], 'descomentar': [(VK_CONTROL, ord('K')), (VK_CONTROL, ord('U'))], 'linea_arriba': (VK_MENU, VK_UP), 'linea_abajo': (VK_MENU, VK_DOWN), 'duplicar': (VK_SHIFT, VK_MENU, VK_DOWN), 'borrar_linea': (VK_CONTROL, VK_SHIFT, ord('K')), 'sel_sig': (VK_CONTROL, ord('D')), 'paleta': (VK_CONTROL, VK_SHIFT, ord('P')), 'abrir': (VK_CONTROL, ord('P')), 'autocompletar': (VK_CONTROL, VK_SPACE), 'renombrar': (VK_F2,), 'definicion': (VK_F12,), 'terminal': (VK_CONTROL, ord('J')), 'ejecutar': (VK_F5,), 'formatear': (VK_SHIFT, VK_MENU, ord('F')), 'ir_linea': (VK_CONTROL, ord('G')), 'copiar': (VK_CONTROL, ord('C')), 'pegar': (VK_CONTROL, ord('V')), 'cortar': (VK_CONTROL, ord('X')), 'deshacer': (VK_CONTROL, ord('Z')), 'rehacer': (VK_CONTROL, ord('Y')), 'todo': (VK_CONTROL, ord('A')), 'guardar': (VK_CONTROL, ord('S')), 'buscar': (VK_CONTROL, ord('F')), 'borrapal': (VK_CONTROL, VK_BACK), 'supr': (VK_DELETE,), 'esc': (VK_ESCAPE,), 'tab': (VK_TAB,), 'alttab': (VK_MENU, VK_TAB), 'win': (VK_LWIN,), 'escritorio': (VK_LWIN, ord('D')), 'inicio': (VK_HOME,), 'fin': (VK_END,), 'arriba': (VK_UP,), 'abajo': (VK_DOWN,)}
@@ -189,6 +192,8 @@ FONDO = '#15171c'
 TECLA = '#262a33'
 TECLA_ESP = '#1f232b'
 SUGER = '#1b1e25'
+TECLA_PANEL = '#30282a'
+TECLA_PANEL_ESP = '#272123'
 TEXTO = '#e8eaf0'
 TEXTO_SUAVE = '#8a90a0'
 ACENTO = '#e0453a'
@@ -218,6 +223,7 @@ class MandoTeclado:
         self.dic = Diccionario()
         self.ajustes = self._cargar_ajustes()
         self._autoinicio = autoinicio_activo()
+        self._crear_sonidos()
         self.layout = LETRAS
         self.fila, self.col = (2, 0)
         self.mayus = 0
@@ -265,6 +271,38 @@ class MandoTeclado:
                 json.dump(self.ajustes, f)
         except OSError:
             pass
+
+    def _crear_sonidos(self):
+        import array
+        import math
+        import random
+        self.sonidos = {}
+        try:
+            pygame.mixer.init(44100, -16, 1, 256)
+        except Exception:
+            return
+        sr = 44100
+        rnd = random.Random(7)
+
+        def clic(freq, ms, ruido, caida, vol):
+            n = int(sr * ms / 1000)
+            datos = array.array('h')
+            for i in range(n):
+                t = i / sr
+                env = math.exp(-t * caida)
+                v = (math.sin(2 * math.pi * freq * t) * (1 - ruido) + (rnd.random() * 2 - 1) * ruido) * env * vol
+                datos.append(int(max(-1.0, min(1.0, v)) * 32767))
+            return pygame.mixer.Sound(buffer=datos.tobytes())
+        self.sonidos = {'tecla': clic(1900, 28, 0.55, 190, 0.45), 'borrar': clic(1100, 32, 0.5, 160, 0.4), 'espacio': clic(520, 45, 0.45, 110, 0.55), 'enter': clic(380, 70, 0.4, 75, 0.6), 'sugerencia': clic(1400, 40, 0.3, 120, 0.45)}
+
+    def sonar(self, tipo='tecla'):
+        if self.ajustes.get('sonido', False):
+            s = self.sonidos.get(tipo)
+            if s:
+                try:
+                    s.play()
+                except Exception:
+                    pass
 
     def vibrar(self, fuerza=0.35, ms=35):
         if self.mando and self.ajustes.get('vibracion', True):
@@ -362,7 +400,10 @@ class MandoTeclado:
     def filas(self):
         sug = [(s, 's:' + s, 10 / 3) for s in self.sugerencias]
         sug += [('', 'nada', 10 / 3)] * (3 - len(sug))
-        return [sug] + self.layout
+        filas = [sug] + self.layout
+        if self._hay_panel():
+            filas = [f + p for f, p in zip(filas, PANEL_PROG)]
+        return filas
 
     def _texto_tecla(self, etiqueta, accion):
         if accion.startswith('c:'):
@@ -373,6 +414,10 @@ class MandoTeclado:
             return ['⇧', '⇧¹', '⇪'][self.mayus]
         if accion == 'k:vibra':
             return 'Vibración ' + ('sí' if self.ajustes.get('vibracion', True) else 'no')
+        if accion == 'k:sonido':
+            return 'Sonido ' + ('sí' if self.ajustes.get('sonido', False) else 'no')
+        if accion == 'prog':
+            return '</> Panel ' + ('sí' if self.ajustes.get('panel_prog', False) else 'no')
         if accion == 'k:autoinicio':
             return 'Con Windows ' + ('sí' if self._autoinicio else 'no')
         return etiqueta
@@ -381,20 +426,28 @@ class MandoTeclado:
     def _alto_para(layout):
         return BARRA + ALTO_SUG + SEP + len(layout) * (ALTO + SEP) + 26
 
-    def _ajustar_alto(self):
-        nuevo = self._alto_para(self.layout)
-        if nuevo == self.alto:
+    def _hay_panel(self):
+        return self.ajustes.get('panel_prog', False) and len(self.layout) == 5
+
+    def _ancho_para(self):
+        unidades = 10 + (PANEL_UNIDADES if self._hay_panel() else 0)
+        return unidades * (CELDA + SEP) + SEP + (HUECO_PANEL if self._hay_panel() else 0)
+
+    def _ajustar_tamano(self):
+        alto, ancho = (self._alto_para(self.layout), self._ancho_para())
+        if alto == self.alto and ancho == self.ancho:
             return
         x, y = (self.root.winfo_x(), self.root.winfo_y())
-        y = max(0, y + self.alto - nuevo)
-        self.alto = nuevo
-        self.canvas.config(height=nuevo)
-        self.root.geometry(f'{self.ancho}x{nuevo}+{x}+{y}')
+        y = max(0, y + self.alto - alto)
+        x = max(0, x + (self.ancho - ancho) // 2)
+        self.alto, self.ancho = (alto, ancho)
+        self.canvas.config(width=ancho, height=alto)
+        self.root.geometry(f'{ancho}x{alto}+{x}+{y}')
 
     def dibujar(self):
         if self.estado != 'teclado':
             return
-        self._ajustar_alto()
+        self._ajustar_tamano()
         cv = self.canvas
         cv.delete('all')
         self._rects = {}
@@ -414,14 +467,20 @@ class MandoTeclado:
         for f, fila in enumerate(self.filas()):
             alto = ALTO_SUG if f == 0 else ALTO
             x = SEP
+            unidades = 0.0
             for c, (etq, acc, w) in enumerate(fila):
+                if abs(unidades - 10) < 1e-06:
+                    x += HUECO_PANEL
+                unidades += w
                 ancho = w * CELDA + (w - 1) * SEP
                 sel = f == self.fila and c == self.col
                 encendida = acc == 'shift' and self.mayus or (acc == 'layout' and self.layout is SIMBOLOS) or (acc == 'atajos' and self.layout is ATAJOS)
                 if sel:
                     color = ACENTO
-                elif f == 0:
+                elif acc.startswith('s:') or acc == 'nada':
                     color = SUGER
+                elif unidades > 10 + 1e-06:
+                    color = TECLA_PANEL if acc.startswith('c:') else TECLA_PANEL_ESP
                 elif encendida:
                     color = ACTIVO
                 elif acc.startswith('c:'):
@@ -430,8 +489,8 @@ class MandoTeclado:
                     color = TECLA_ESP
                 cv.create_rectangle(x, y, x + ancho, y + alto, fill=color, outline=ACENTO if sel else '', width=2)
                 if acc.startswith('c:'):
-                    tam = 17
-                elif f == 0:
+                    tam = 17 if len(etq) == 1 else 13
+                elif acc.startswith('s:'):
                     tam = 13
                 else:
                     tam = 11 if len(etq) <= 12 else 9
@@ -488,6 +547,8 @@ class MandoTeclado:
         if acc == 'nada':
             return
         self.vibrar()
+        if not (acc.startswith('c:') or acc.startswith('s:') or acc in ('space', 'back', 'enter')):
+            self.sonar('tecla')
         if acc.startswith('c:'):
             self.escribir(acc[2:])
         elif acc.startswith('s:'):
@@ -501,6 +562,9 @@ class MandoTeclado:
         elif acc == 'atajos':
             self.cambiar_layout(LETRAS if self.layout is ATAJOS else ATAJOS)
         elif acc == 'prog':
+            self.ajustes['panel_prog'] = not self.ajustes.get('panel_prog', False)
+            self._guardar_ajustes()
+        elif acc == 'mas_prog':
             self.cambiar_layout(PROGRAMADOR)
         elif acc == 'space':
             self.espacio()
@@ -513,6 +577,7 @@ class MandoTeclado:
     def escribir(self, t):
         if self.mayus:
             t = t.upper()
+        self.sonar('tecla')
         send_text(t)
         self.ultima_sugerencia = ''
         if t.isalpha():
@@ -525,6 +590,7 @@ class MandoTeclado:
 
     def usar_sugerencia(self, p):
         p = self._con_mayus(p)
+        self.sonar('sugerencia')
         volver = self.pos_antes
         send_vk(VK_BACK, len(self.palabra))
         send_text(p + ' ')
@@ -536,14 +602,17 @@ class MandoTeclado:
         self.fila, self.col = volver or (2, 0)
 
     def espacio(self):
+        self.sonar('espacio')
         send_text(' ')
         self.reiniciar_palabra(aprender=True)
 
     def enter(self):
+        self.sonar('enter')
         send_vk(VK_RETURN)
         self.reiniciar_palabra(aprender=True)
 
     def borrar(self):
+        self.sonar('borrar')
         if self.ultima_sugerencia:
             send_vk(VK_BACK, len(self.ultima_sugerencia))
             self.ultima_sugerencia = ''
@@ -560,6 +629,11 @@ class MandoTeclado:
             self.ajustes['vibracion'] = not self.ajustes.get('vibracion', True)
             self._guardar_ajustes()
             self.vibrar(0.6, 120)
+            return
+        if nombre == 'sonido':
+            self.ajustes['sonido'] = not self.ajustes.get('sonido', False)
+            self._guardar_ajustes()
+            self.sonar('enter')
             return
         if nombre == 'autoinicio':
             try:
@@ -656,6 +730,26 @@ class MandoTeclado:
         elif no:
             self.responder_no()
 
+    def _mover_raton(self, rx, ry):
+        ahora = time.monotonic()
+        dt = min(0.05, ahora - getattr(self, '_raton_t', ahora))
+        self._raton_t = ahora
+        mag = (rx * rx + ry * ry) ** 0.5
+        dz = 0.12
+        if mag <= dz:
+            self._raton_resto = (0.0, 0.0)
+            return
+        ux, uy = (rx / mag, ry / mag)
+        t = min(1.0, (mag - dz) / (1 - dz))
+        rapidez = 1600 * t ** 2.2
+        rx_acc, ry_acc = getattr(self, '_raton_resto', (0.0, 0.0))
+        fx = ux * rapidez * dt + rx_acc
+        fy = uy * rapidez * dt + ry_acc
+        ix, iy = (int(fx), int(fy))
+        self._raton_resto = (fx - ix, fy - iy)
+        if ix or iy:
+            mouse_move(ix, iy)
+
     def _leer_mando(self):
         m = self.mando
         B = lambda b: bool(m.get_button(b))
@@ -671,16 +765,7 @@ class MandoTeclado:
         if not back and self._back_pulsado:
             self._back_pulsado = False
             self.alternar_visible()
-        rx, ry = (ax(pygame.CONTROLLER_AXIS_RIGHTX), ax(pygame.CONTROLLER_AXIS_RIGHTY))
-        dz = 0.15
-        if abs(rx) > dz or abs(ry) > dz:
-
-            def vel(v):
-                if abs(v) <= dz:
-                    return 0
-                v2 = (abs(v) - dz) / (1 - dz)
-                return v2 ** 2 * 22 * (1 if v > 0 else -1)
-            mouse_move(vel(rx), vel(ry))
+        self._mover_raton(ax(pygame.CONTROLLER_AXIS_RIGHTX), ax(pygame.CONTROLLER_AXIS_RIGHTY))
         if self._flanco('r3', B(pygame.CONTROLLER_BUTTON_RIGHTSTICK)):
             mouse_click(MOUSEEVENTF_LEFTDOWN, MOUSEEVENTF_LEFTUP)
             self.reiniciar_palabra()
