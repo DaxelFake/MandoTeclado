@@ -37,6 +37,7 @@ Funciona con mandos de PlayStation (DualSense, DualShock 4), Xbox, Switch Pro y 
 - **Aprende tus palabras.** Las palabras nuevas que escribes se recuerdan y te las sugiere la próxima vez.
 - **Símbolos y acentos.** La tecla «123 #» abre los símbolos, la ñ y las vocales con tilde.
 - **Atajos.** Copiar, pegar, cortar, deshacer, seleccionar todo, buscar, Alt+Tab, tecla Windows y más.
+- **Modo Programador.** En «Atajos», la tecla «</> Programador» abre una pantalla con símbolos de código (`( ) [ ] { } < > = ; => ->`...) y atajos de editor: tabular, comentar y descomentar, mover, duplicar o borrar líneas, seleccionar la siguiente coincidencia, paleta de comandos, abrir archivo, autocompletar, renombrar (F2), ir a definición (F12), terminal, ejecutar (F5), formatear e ir a línea. Los atajos son los de VS Code y funcionan con cualquier idioma de teclado.
 - **Vibración** al pulsar cada tecla. Se activa o desactiva en «Atajos».
 - **Arranque con Windows.** En «Atajos», activa «Con Windows». El programa se queda esperando sin molestar y, cuando conectas un mando, pregunta si quieres abrir el teclado.
 

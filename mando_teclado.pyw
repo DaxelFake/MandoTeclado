@@ -180,8 +180,11 @@ def _fila_abajo(texto_layout, texto_atajos):
     return [('⇧', 'shift', 1), (texto_layout, 'layout', 2), (texto_atajos, 'atajos', 2), ('Espacio', 'space', 3), ('⌫', 'back', 1), ('⏎', 'enter', 1)]
 LETRAS = [_fila('1234567890'), _fila('qwertyuiop'), _fila('asdfghjklñ'), _fila('zxcvbnm,.?'), _fila_abajo('123 #', 'Atajos')]
 SIMBOLOS = [_fila('!"#$%&/()='), _fila("áéíóúü¿¡'+"), _fila('-_:;*[]{}\\'), _fila('<>|~^`@€ç·'), _fila_abajo('ABC', 'Atajos')]
-ATAJOS = [[('Copiar', 'k:copiar', 2), ('Pegar', 'k:pegar', 2), ('Cortar', 'k:cortar', 2), ('Deshacer', 'k:deshacer', 2), ('Rehacer', 'k:rehacer', 2)], [('Selec. todo', 'k:todo', 2), ('Guardar', 'k:guardar', 2), ('Buscar', 'k:buscar', 2), ('Borrar palabra', 'k:borrapal', 2), ('Supr', 'k:supr', 2)], [('Esc', 'k:esc', 2), ('Tab', 'k:tab', 2), ('Alt+Tab', 'k:alttab', 2), ('Win', 'k:win', 2), ('Escritorio', 'k:escritorio', 2)], [('Inicio', 'k:inicio', 2), ('Fin', 'k:fin', 2), ('↑', 'k:arriba', 1), ('↓', 'k:abajo', 1), ('Vibración', 'k:vibra', 2), ('Con Windows', 'k:autoinicio', 2)], _fila_abajo('123 #', 'ABC')]
-COMBOS = {'copiar': (VK_CONTROL, ord('C')), 'pegar': (VK_CONTROL, ord('V')), 'cortar': (VK_CONTROL, ord('X')), 'deshacer': (VK_CONTROL, ord('Z')), 'rehacer': (VK_CONTROL, ord('Y')), 'todo': (VK_CONTROL, ord('A')), 'guardar': (VK_CONTROL, ord('S')), 'buscar': (VK_CONTROL, ord('F')), 'borrapal': (VK_CONTROL, VK_BACK), 'supr': (VK_DELETE,), 'esc': (VK_ESCAPE,), 'tab': (VK_TAB,), 'alttab': (VK_MENU, VK_TAB), 'win': (VK_LWIN,), 'escritorio': (VK_LWIN, ord('D')), 'inicio': (VK_HOME,), 'fin': (VK_END,), 'arriba': (VK_UP,), 'abajo': (VK_DOWN,)}
+ATAJOS = [[('Copiar', 'k:copiar', 2), ('Pegar', 'k:pegar', 2), ('Cortar', 'k:cortar', 2), ('Deshacer', 'k:deshacer', 2), ('Rehacer', 'k:rehacer', 2)], [('Selec. todo', 'k:todo', 2), ('Guardar', 'k:guardar', 2), ('Buscar', 'k:buscar', 2), ('Borrar palabra', 'k:borrapal', 2), ('Supr', 'k:supr', 2)], [('Esc', 'k:esc', 2), ('</> Programador', 'prog', 2), ('Alt+Tab', 'k:alttab', 2), ('Win', 'k:win', 2), ('Escritorio', 'k:escritorio', 2)], [('Inicio', 'k:inicio', 2), ('Fin', 'k:fin', 2), ('↑', 'k:arriba', 1), ('↓', 'k:abajo', 1), ('Vibración', 'k:vibra', 2), ('Con Windows', 'k:autoinicio', 2)], _fila_abajo('123 #', 'ABC')]
+PROGRAMADOR = [_fila('()[]{}<>=;'), _fila('+-*/%&|!?:'), _fila('"\'`_\\#$@') + [('=>', 'c:=>', 1), ('->', 'c:->', 1)], [('Tab ⇥', 'k:tab', 2), ('⇤ Tab', 'k:destab', 2), ('Comentar', 'k:comentar', 2), ('Descomentar', 'k:descomentar', 2), ('Guardar', 'k:guardar', 2)], [('Línea ↑', 'k:linea_arriba', 2), ('Línea ↓', 'k:linea_abajo', 2), ('Duplicar línea', 'k:duplicar', 2), ('Borrar línea', 'k:borrar_linea', 2), ('Selec. siguiente', 'k:sel_sig', 2)], [('Paleta', 'k:paleta', 2), ('Abrir archivo', 'k:abrir', 2), ('Autocompletar', 'k:autocompletar', 2), ('Renombrar F2', 'k:renombrar', 2), ('Definición F12', 'k:definicion', 2)], [('Terminal', 'k:terminal', 2), ('Ejecutar F5', 'k:ejecutar', 2), ('Formatear', 'k:formatear', 2), ('Ir a línea', 'k:ir_linea', 2), ('Deshacer', 'k:deshacer', 2)], _fila_abajo('ABC', 'Atajos')]
+VK_SHIFT, VK_SPACE = (16, 32)
+VK_F2, VK_F5, VK_F12 = (113, 116, 123)
+COMBOS = {'destab': (VK_SHIFT, VK_TAB), 'comentar': [(VK_CONTROL, ord('K')), (VK_CONTROL, ord('C'))], 'descomentar': [(VK_CONTROL, ord('K')), (VK_CONTROL, ord('U'))], 'linea_arriba': (VK_MENU, VK_UP), 'linea_abajo': (VK_MENU, VK_DOWN), 'duplicar': (VK_SHIFT, VK_MENU, VK_DOWN), 'borrar_linea': (VK_CONTROL, VK_SHIFT, ord('K')), 'sel_sig': (VK_CONTROL, ord('D')), 'paleta': (VK_CONTROL, VK_SHIFT, ord('P')), 'abrir': (VK_CONTROL, ord('P')), 'autocompletar': (VK_CONTROL, VK_SPACE), 'renombrar': (VK_F2,), 'definicion': (VK_F12,), 'terminal': (VK_CONTROL, ord('J')), 'ejecutar': (VK_F5,), 'formatear': (VK_SHIFT, VK_MENU, ord('F')), 'ir_linea': (VK_CONTROL, ord('G')), 'copiar': (VK_CONTROL, ord('C')), 'pegar': (VK_CONTROL, ord('V')), 'cortar': (VK_CONTROL, ord('X')), 'deshacer': (VK_CONTROL, ord('Z')), 'rehacer': (VK_CONTROL, ord('Y')), 'todo': (VK_CONTROL, ord('A')), 'guardar': (VK_CONTROL, ord('S')), 'buscar': (VK_CONTROL, ord('F')), 'borrapal': (VK_CONTROL, VK_BACK), 'supr': (VK_DELETE,), 'esc': (VK_ESCAPE,), 'tab': (VK_TAB,), 'alttab': (VK_MENU, VK_TAB), 'win': (VK_LWIN,), 'escritorio': (VK_LWIN, ord('D')), 'inicio': (VK_HOME,), 'fin': (VK_END,), 'arriba': (VK_UP,), 'abajo': (VK_DOWN,)}
 FONDO = '#15171c'
 TECLA = '#262a33'
 TECLA_ESP = '#1f232b'
@@ -234,7 +237,7 @@ class MandoTeclado:
         self.root.attributes('-topmost', True)
         self.root.attributes('-alpha', 0.95)
         ancho = 10 * CELDA + 11 * SEP
-        alto = BARRA + ALTO_SUG + SEP + 5 * (ALTO + SEP) + 26
+        alto = self._alto_para(LETRAS)
         self.canvas = tk.Canvas(self.root, width=ancho, height=alto, bg=FONDO, highlightthickness=0)
         self.canvas.pack()
         self.ancho, self.alto = (ancho, alto)
@@ -374,15 +377,37 @@ class MandoTeclado:
             return 'Con Windows ' + ('sí' if self._autoinicio else 'no')
         return etiqueta
 
+    @staticmethod
+    def _alto_para(layout):
+        return BARRA + ALTO_SUG + SEP + len(layout) * (ALTO + SEP) + 26
+
+    def _ajustar_alto(self):
+        nuevo = self._alto_para(self.layout)
+        if nuevo == self.alto:
+            return
+        x, y = (self.root.winfo_x(), self.root.winfo_y())
+        y = max(0, y + self.alto - nuevo)
+        self.alto = nuevo
+        self.canvas.config(height=nuevo)
+        self.root.geometry(f'{self.ancho}x{nuevo}+{x}+{y}')
+
     def dibujar(self):
         if self.estado != 'teclado':
             return
+        self._ajustar_alto()
         cv = self.canvas
         cv.delete('all')
         self._rects = {}
         nombre = self.mando.name if self.mando else 'Conecta un mando…'
         cv.create_text(12, 17, anchor='w', fill=TEXTO_SUAVE, font=('Segoe UI', 10), text=f'🎮  {nombre}')
-        estado = 'MAYÚS' if self.mayus == 2 else 'Atajos' if self.layout is ATAJOS else ''
+        if self.mayus == 2:
+            estado = 'MAYÚS'
+        elif self.layout is ATAJOS:
+            estado = 'Atajos'
+        elif self.layout is PROGRAMADOR:
+            estado = '</> Programador'
+        else:
+            estado = ''
         cv.create_text(self.ancho - 44, 17, anchor='e', fill=ACENTO, font=('Segoe UI', 10, 'bold'), text=estado)
         cv.create_text(self.ancho - 17, 17, fill=TEXTO_SUAVE, font=('Segoe UI', 12), text='✕')
         y = BARRA
@@ -409,7 +434,7 @@ class MandoTeclado:
                 elif f == 0:
                     tam = 13
                 else:
-                    tam = 11
+                    tam = 11 if len(etq) <= 12 else 9
                 cv.create_text(x + ancho / 2, y + alto / 2, fill=TEXTO, font=('Segoe UI', tam, 'bold' if sel else 'normal'), text=self._texto_tecla(etq, acc))
                 self._rects[f, c] = (x, y, x + ancho, y + alto)
                 x += ancho + SEP
@@ -424,7 +449,7 @@ class MandoTeclado:
         return p
 
     def _actualizar_sugerencias(self):
-        self.sugerencias = self.dic.sugerir(self.palabra) if self.layout is not ATAJOS else []
+        self.sugerencias = self.dic.sugerir(self.palabra) if self.layout in (LETRAS, SIMBOLOS) else []
 
     def reiniciar_palabra(self, aprender=False):
         if aprender and self.palabra:
@@ -475,6 +500,8 @@ class MandoTeclado:
             self.cambiar_layout(SIMBOLOS if self.layout is LETRAS else LETRAS)
         elif acc == 'atajos':
             self.cambiar_layout(LETRAS if self.layout is ATAJOS else ATAJOS)
+        elif acc == 'prog':
+            self.cambiar_layout(PROGRAMADOR)
         elif acc == 'space':
             self.espacio()
         elif acc == 'back':
@@ -541,7 +568,9 @@ class MandoTeclado:
                 pass
             self._autoinicio = autoinicio_activo()
             return
-        send_combo(*COMBOS[nombre])
+        combo = COMBOS[nombre]
+        for acorde in combo if isinstance(combo, list) else [combo]:
+            send_combo(*acorde)
         self.reiniciar_palabra()
 
     def ciclo_mayus(self):
